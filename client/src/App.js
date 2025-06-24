@@ -11,6 +11,7 @@ import UrgencyLevels from "./pages/UrgencyLevels";
 import UrgencyLevelDetails from "./components/UrgencyLevelDetails";
 import LogDetails from "./components/LogDetails";
 import EditSupportLogForm from "./components/EditSupportLogForm";
+import AddSupportLogForm from "./components/AddSupportLogForm";
 import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           {user ? (
             <>
               <Route path="/" element={<Home />} />
+              <Route path="/logs/new" element={<AddSupportLogForm />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/resources/:id" element={<ResourceDetail />} />
               <Route path="/urgency-levels" element={<UrgencyLevels />} />

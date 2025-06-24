@@ -21,24 +21,30 @@ function Navbar() {
       })
       .catch((err) => console.error(err));
   };
+
   return (
     <nav className="navbar">
-      <li>
-        <NavLink to="/" className="nav-link">
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/resources" className="nav-link">
-          Resources
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/urgency-levels" className="nav-link">
-          Urgency Levels
-        </NavLink>
-      </li>
+      <ul className="nav-links">
+        <li>
+          <NavLink to="/" className="nav-link">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/resources" className="nav-link">
+            Resources
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/urgency-levels" className="nav-link">
+            Urgency Levels
+          </NavLink>
+        </li>
+      </ul>
       <div className="nav-actions">
+        <NavLink to="/logs/new" className="add-button">
+          ➕ Add Support Log
+        </NavLink>
         <button onClick={handleLogout} className="logout-button">
           Logout
         </button>
