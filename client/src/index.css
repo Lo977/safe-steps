@@ -171,3 +171,62 @@ a:hover {
 .resource-item a:hover {
   color: #5ee290;
 }
+
+/* //////////////////// UrgencyLevels ////////////////////////////////////////////// */
+.urgency-container {
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.urgency-title {
+  font-size: 2rem;
+  color: #ff5c8a; /* vibrant pink */
+  margin-bottom: 1.5rem;
+  /* text-shadow: 0 0 3px #b09b14; */
+}
+
+.urgency-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.urgency-item {
+  margin: 0.75rem 0;
+  font-size: 1.2rem;
+  background-color: #2a2a2a;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.urgency-item:hover {
+  background-color: #383838;
+}
+
+.urgency-link {
+  color: #f28500;
+  font-weight: 500;
+}
+
+.urgency-link:hover {
+  color: #ffc266;
+}
+
+.urgency-description {
+  color: #ccc;
+  font-style: italic;
+}
+
+.urgency-empty {
+  font-style: italic;
+  color: #888;
+}
+
+.urgency-loading {
+  color: #aaa;
+  font-style: italic;
+  text-align: center;
+}
