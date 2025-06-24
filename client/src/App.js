@@ -10,6 +10,7 @@ import ResourceDetail from "./components/ResourceDetail";
 import UrgencyLevels from "./pages/UrgencyLevels";
 import UrgencyLevelDetails from "./components/UrgencyLevelDetails";
 import LogDetails from "./components/LogDetails";
+import EditSupportLogForm from "./components/EditSupportLogForm";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,7 @@ function App() {
               />
 
               <Route path="/logs/:id" element={<LogDetails />} />
+              <Route path="/logs/:id/edit" element={<EditSupportLogForm />} />
             </>
           ) : (
             <>
