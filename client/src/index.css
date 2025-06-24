@@ -90,3 +90,42 @@ a:hover {
 .logout-button:hover {
   background-color: #666;
 }
+/* //////////////////// Home ////////////////////////////////////////////// */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.home-container img {
+  width: 160px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 5px #ffb347); /* sunrise glow effect */
+}
+
+.home-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #ffa500; /* sunrise orange */
+  margin-bottom: 1rem;
+  text-shadow: 0 0 3px #ffcc70;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  color: #eeeeee;
+  background: linear-gradient(
+    to right,
+    rgba(255, 165, 0, 0.05),
+    rgba(255, 215, 0, 0.05)
+  );
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(255, 153, 51, 0.1);
+}
