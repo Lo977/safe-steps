@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignupForm from "./components/SignupForm";
 import Resources from "./pages/Resources";
+import ResourceDetail from "./components/ResourceDetail";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function App() {
             <>
               <Route path="/" element={<Home />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/resources/:id" element={<ResourceDetail />} />
             </>
           ) : (
             <>
