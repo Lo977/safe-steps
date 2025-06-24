@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import SignupForm from "./components/SignupForm";
 import Resources from "./pages/Resources";
 import ResourceDetail from "./components/ResourceDetail";
+import UrgencyLevels from "./pages/UrgencyLevels";
 import LogDetails from "./components/LogDetails";
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/resources/:id" element={<ResourceDetail />} />
+              <Route path="/urgency-levels" element={<UrgencyLevels />} />
+
               <Route path="/logs/:id" element={<LogDetails />} />
             </>
           ) : (

@@ -33,6 +33,11 @@ function Navbar() {
           Resources
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/urgency-levels" className="nav-link">
+          Urgency Levels
+        </NavLink>
+      </li>
       <div className="nav-actions">
         <button onClick={handleLogout} className="logout-button">
           Logout
