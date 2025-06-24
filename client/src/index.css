@@ -230,3 +230,84 @@ a:hover {
   font-style: italic;
   text-align: center;
 }
+/* //////////////////// AddSupportLogForm ////////////////////////////////////////////// */
+.add-log-container {
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(255, 165, 0, 0.1);
+}
+
+.add-log-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ffa500;
+  text-align: center;
+  /* text-shadow: 0 0 2px #ffcc70; */
+}
+
+.add-log-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.textarea-field,
+.select-field {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+
+.textarea-field:focus,
+.select-field:focus {
+  border-color: #ffa500;
+  outline: none;
+  box-shadow: 0 0 4px #ffcc70;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submit-button,
+.cancel-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.submit-button {
+  background-color: #3cb371;
+  color: #fff;
+}
+
+.submit-button:hover {
+  background-color: #5ee290;
+}
+
+.cancel-button {
+  background-color: #555;
+  color: #fff;
+}
+
+.cancel-button:hover {
+  background-color: #777;
+}
