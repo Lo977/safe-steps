@@ -594,3 +594,81 @@ a:hover {
   font-style: italic;
   color: #999;
 }
+/* //////////////////// UrgencyLevelDetails ////////////////////////////////////////////// */
+.urgency-detail-container {
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.urgency-detail-title {
+  font-size: 2rem;
+  color: #ff69b4; /* hot pink */
+  margin-bottom: 0.5rem;
+  /* text-shadow: 0 0 2px #ffb6c1; */
+}
+
+.urgency-detail-description {
+  color: #dcdcdc;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.urgency-detail-subtitle {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #ffa500; /* orange */
+  /* text-shadow: 0 0 1px #ffcc70; */
+}
+
+.urgency-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.urgency-detail-table th,
+.urgency-detail-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #444;
+  text-align: left;
+  color: #eee;
+}
+
+.urgency-detail-table th {
+  background-color: #2e2e2e;
+  color: #ffd700; /* gold */
+}
+
+.urgency-log-view-link {
+  color: #00ced1; /* turquoise */
+  text-decoration: none;
+}
+
+.urgency-log-view-link:hover {
+  color: #40e0d0;
+  text-decoration: underline;
+}
+
+.urgency-detail-empty {
+  font-style: italic;
+  color: #777;
+  margin-top: 1rem;
+}
+
+.urgency-back-button {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #e2e8f0;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.urgency-detail-loading,
+.urgency-detail-not-found {
+  font-style: italic;
+  color: #bbb;
+}
