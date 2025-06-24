@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+        {user && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
