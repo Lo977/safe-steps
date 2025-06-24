@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignupForm from "./components/SignupForm";
+import Resources from "./pages/Resources";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,6 +27,7 @@ function App() {
           {user ? (
             <>
               <Route path="/" element={<Home />} />
+              <Route path="/resources" element={<Resources />} />
             </>
           ) : (
             <>
