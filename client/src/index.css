@@ -729,3 +729,46 @@ a:hover {
   font-size: 0.9rem;
   margin-top: 0.25rem;
 }
+
+/* //////////////////// Login ////////////////////////////////////////////// */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.login-card {
+  background-color: #2a2a2a;
+  color: #eee;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 15px #00000055;
+}
+
+.login-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.signup-button {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #357edd;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  background-color: #5596f4;
+}
