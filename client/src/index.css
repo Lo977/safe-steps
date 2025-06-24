@@ -1,7 +1,25 @@
-:root {
-  --bg: #282c34;
-  --header: #fff;
-  --link: #61dafb;
-  --text: hsla(0, 0%, 100%, 0.88);
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: #eee;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Make sure React root fills the screen */
+#root {
+  min-height: 100vh;
+  background-color: #1e1e1e;
+}
+
+/* Default link color override for dark theme */
+a {
+  color: #3cb371;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5ee290;
+  text-decoration: underline;
+}
