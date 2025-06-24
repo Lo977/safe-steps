@@ -672,3 +672,60 @@ a:hover {
   font-style: italic;
   color: #bbb;
 }
+
+/* //////////////////// LoginForm ////////////////////////////////////////////// */
+.login-form-container {
+  background-color: #1e1e1e;
+  color: #eee;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 3rem auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00000055;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.login-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.login-field {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.login-field:focus {
+  outline: none;
+  border-color: #5ee290;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #2e8b57;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #3cb371;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
