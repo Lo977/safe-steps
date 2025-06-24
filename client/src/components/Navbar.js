@@ -28,6 +28,11 @@ function Navbar() {
           Home
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/resources" className="nav-link">
+          Resources
+        </NavLink>
+      </li>
       <div className="nav-actions">
         <button onClick={handleLogout} className="logout-button">
           Logout
