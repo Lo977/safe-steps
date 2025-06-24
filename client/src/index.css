@@ -311,3 +311,93 @@ a:hover {
 .cancel-button:hover {
   background-color: #777;
 }
+
+/* //////////////////// EditSupportLogForm ////////////////////////////////////////////// */
+.edit-log-container {
+  background-color: #2c2c2c;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00000050;
+}
+
+.edit-log-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #3cb371;
+}
+
+.edit-log-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.edit-log-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-log-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.edit-log-textarea,
+.edit-log-select {
+  background-color: #1e1e1e;
+  color: #eee;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.edit-log-textarea:focus,
+.edit-log-select:focus {
+  outline: none;
+  border-color: #3cb371;
+}
+
+.edit-log-error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.edit-log-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.edit-log-button,
+.edit-log-cancel {
+  background-color: #3cb371;
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-log-cancel {
+  background-color: #aaa;
+}
+
+.edit-log-button:hover {
+  background-color: #5ee290;
+}
+
+.edit-log-cancel:hover {
+  background-color: #ccc;
+}
+
+.edit-log-not-found {
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  color: #999;
+}
