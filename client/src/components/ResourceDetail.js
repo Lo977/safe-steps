@@ -10,20 +10,13 @@ function ResourceDetail() {
   const resourceId = parseInt(id);
   const resource = user?.resources?.find((r) => r.id === resourceId);
 
-  //   if (!user || !user.resources) {
-  //     return <p className="resource-detail-loading">Loading...</p>;
-  //   }
-
+  
   if (!resource) {
     return (
-      <div>
+      <div className="resource-detail-not-found">
         {" "}
-        <p className="resource-detail-not-found">
-          Resource not found or unauthorized.
-        </p>
-        <Link to={`/resources`} className="resource-log-view-link">
-          ← Back to Resources
-        </Link>
+        <p>Resource not found or unauthorized.</p>
+        <Link to={`/resources`}>← Back to Resources</Link>
       </div>
     );
   }

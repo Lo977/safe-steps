@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import UserContext from "./UserContext";
 
 function LogDetails() {
@@ -9,14 +9,21 @@ function LogDetails() {
 
   const logId = parseInt(id);
 
-  // Find the log by searching all resource support_logs
   const log =
     user?.resources
       ?.flatMap((r) => r.support_logs || [])
       ?.find((l) => l.id === logId) || null;
 
-  // if (!log)
-  //   return <p className="log-not-found">Log not found or unauthorized.</p>;
+  if (!log) {
+    return (
+      <div className="log-not-found">
+        <p>Log not found or unauthorized.</p>
+        <Link to={`/`} className="resource-log-view-link">
+          ← Back to Home
+        </Link>
+      </div>
+    );
+  }
 
   const handleDelete = () => {
     fetch(`/logs/${log.id}`, {

@@ -1,5 +1,5 @@
 from config import db, bcrypt
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from flask_marshmallow import Marshmallow
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow import fields
@@ -17,7 +17,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(80), nullable=False, unique=True)
     _password_hash = db.Column('password', db.String(128), nullable=False)
 
-    support_logs = db.relationship('SupportLog', back_populates='user', cascade="all, delete")
+    support_logs = db.relationship('SupportLog', backref='user', cascade="all, delete")
 
     @property
     def password(self):
@@ -32,11 +32,11 @@ class User(UserMixin, db.Model):
 
     @property
     def resources(self):
-        return list({log.resource for log in self.support_logs})
+        return sorted({log.resource for log in self.support_logs}, key=lambda r: r.name.lower())
 
     @property
     def urgency_levels(self):
-        return list({log.urgency_level for log in self.support_logs})
+        return sorted({log.urgency_level for log in self.support_logs}, key=lambda u: u.level.lower())
 
 
 class SupportLog(db.Model):
@@ -50,21 +50,17 @@ class SupportLog(db.Model):
     resource_id = db.Column(db.Integer, db.ForeignKey('resources.id'), nullable=False)
     urgency_level_id = db.Column(db.Integer, db.ForeignKey('urgency_levels.id'), nullable=False)
 
-    user = db.relationship('User', back_populates='support_logs')
-    resource = db.relationship('Resource', back_populates='support_logs')
-    urgency_level = db.relationship('UrgencyLevel', back_populates='support_logs')
-
 
 class Resource(db.Model):
     __tablename__ = 'resources'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False, unique=True)
     type = db.Column(db.String(50), nullable=False)
     location = db.Column(db.String(150))
     phone_number = db.Column(db.String(20))
 
-    support_logs = db.relationship('SupportLog', back_populates='resource', cascade="all, delete")
+    support_logs = db.relationship('SupportLog', backref='resource', cascade="all, delete")
 
 
 class UrgencyLevel(db.Model):
@@ -74,66 +70,59 @@ class UrgencyLevel(db.Model):
     level = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(150))
 
-    support_logs = db.relationship('SupportLog', back_populates='urgency_level', cascade="all, delete")
-
+    support_logs = db.relationship('SupportLog', backref='urgency_level', cascade="all, delete")
 
 # ===========================
 # Schemas
 # ===========================
 
-# Slim log used inside resources and urgency-levels
-# class SupportLogSchemaSlim(SQLAlchemyAutoSchema):
-#     class Meta:
-#         model = SupportLog
-#         load_instance = True
+def filter_user_logs(logs):
+    return [log for log in logs if log.user_id == current_user.id]
 
-#     resource_id = fields.Int()
-#     urgency_level_id = fields.Int()
 
 class SupportLogSchemaSlim(SQLAlchemyAutoSchema):
     class Meta:
         model = SupportLog
-        load_instance = True
-        # register = True
 
-    resource_id = fields.Int()
-    urgency_level_id = fields.Int()
-
-class UrgencyLevelSchema(SQLAlchemyAutoSchema):
-    class Meta:
-        model = UrgencyLevel
-        load_instance = True
-
-    support_logs = fields.Method("get_user_logs")
-
-    def get_user_logs(self, obj):
-        from flask_login import current_user
-        logs = [log for log in obj.support_logs if log.user_id == current_user.id]
-        return SupportLogSchemaSlim(many=True).dump(logs)
-
-
+    resource = fields.Nested(lambda: ResourceSchema(only=("id", "name")))
+    urgency_level = fields.Nested(lambda: UrgencyLevelSchema(only=("id", "level")))
 
 
 class ResourceSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Resource
-        load_instance = True
 
     support_logs = fields.Method("get_user_logs")
 
     def get_user_logs(self, obj):
-        from flask_login import current_user
-        logs = [log for log in obj.support_logs if log.user_id == current_user.id]
-        return SupportLogSchemaSlim(many=True).dump(logs)
+        return SupportLogSchemaSlim(many=True).dump(filter_user_logs(obj.support_logs))
+
+
+class UrgencyLevelSchema(SQLAlchemyAutoSchema):
+    class Meta:
+        model = UrgencyLevel
+
+    support_logs = fields.Method("get_user_logs")
+
+    def get_user_logs(self, obj):
+        return SupportLogSchemaSlim(many=True).dump(filter_user_logs(obj.support_logs))
+
+
+class SupportLogSchema(SQLAlchemyAutoSchema):
+    class Meta:
+        model = SupportLog
+
+    resource = fields.Nested(ResourceSchema)
+    urgency_level = fields.Nested(UrgencyLevelSchema)
+    user = fields.Nested(lambda: UserSchema(only=("id", "name")))
 
 
 class UserSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = User
-        load_instance = True
         exclude = ("_password_hash",)
 
-    support_logs = fields.Nested(SupportLogSchemaSlim, many=True)
+    
     resources = fields.Method("get_resources")
     urgency_levels = fields.Method("get_urgency_levels")
 

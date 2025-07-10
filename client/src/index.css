@@ -669,6 +669,7 @@ a:hover {
 
 .urgency-detail-loading,
 .urgency-detail-not-found {
+  text-align: center;
   font-style: italic;
   color: #bbb;
 }

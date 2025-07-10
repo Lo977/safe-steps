@@ -16,14 +16,10 @@ function UrgencyLevelDetails() {
 
   if (!level) {
     return (
-      <div>
+      <div className="urgency-detail-not-found">
         {" "}
-        <p className="urgency-detail-not-found">
-          Urgency level not found or unauthorized.
-        </p>
-        <Link to={`/urgency-levels`} className="resource-log-view-link">
-          ← Back to Urgency Levels
-        </Link>
+        <p>Urgency level not found or unauthorized.</p>
+        <Link to={`/urgency-levels`}>← Back to Urgency Levels</Link>
       </div>
     );
   }
